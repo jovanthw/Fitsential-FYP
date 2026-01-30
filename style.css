@@ -1,0 +1,127 @@
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translate3d(0, 20px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+
+body { background-color: hsl(30 20% 98%); }
+input:focus { outline: none; border-color: hsl(20 70% 47%); }
+
+/* Scrollbar Hide for Chat */
+#chat-messages::-webkit-scrollbar { width: 6px; }
+#chat-messages::-webkit-scrollbar-thumb { background-color: #e5e7eb; border-radius: 4px; }
+
+/* Add this for the Wishlist Heart */
+.wishlist-active svg {
+    fill: currentColor;
+    color: #ef4444; /* Red-500 */
+}
+
+/*confirm button animation */
+/* Two-Step Delete Button Animations */
+.delete-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring feel */
+}
+
+.cancel-btn {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.delete-wrapper.expanded .cancel-btn {
+    width: 2.5rem; /* w-10 */
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.delete-main-btn {
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.delete-main-btn:active {
+    transform: scale(0.95);
+}
+
+
+
+/* Filter Button Animation */
+@keyframes popActive {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.cat-btn {
+    transition: all 0.2s ease;
+}
+
+.cat-btn.active-filter {
+    animation: popActive 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Bouncy effect */
+    background-color: hsl(20 10% 15%); /* Primary Color */
+    color: white;
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Soft shadow */
+}
+
+/* Popover Animations */
+.popover-content {
+    transform-origin: top center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+    pointer-events: none;
+    visibility: hidden;
+    position: absolute;
+    z-index: 50;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.popover-wrapper.active .popover-content {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.popover-wrapper.active .popover-trigger {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Success State Transition */
+.popover-success {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.popover-content.show-success .popover-form {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.popover-content.show-success .popover-success {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}

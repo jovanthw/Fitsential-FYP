@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Seeder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans flex items-center justify-center min-h-screen">
+
+<script type="module" src="script.js"></script>
+
+<div class="bg-white p-8 rounded-xl shadow-lg text-center max-w-md w-full">
+    <div class="mb-6 bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto text-blue-600 text-2xl">
+        🚀
+    </div>
+    <h1 class="text-2xl font-bold mb-2">Product Seeder</h1>
+    <p class="text-gray-500 mb-6 text-sm">
+        Clicking the button below will upload your 12 hardcoded products (with local image paths) to the Firestore Database.
+    </p>
+
+    <button id="seed-btn" class="w-full bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition font-medium shadow-md">
+        Seed Products Now
+    </button>
+
+    <p id="seed-status" class="mt-4 text-xs text-gray-400 font-mono"></p>
+</div>
+
+//specifically, seed.html does this:
+1. It acts as an Admin Button: It provides a simple user interface (a single button) to trigger a complex background script.
+
+2. It Uploads Local Data to the Cloud: It takes the hardcoded const products list inside your script.js and sends it to your Firestore Database.
+
+3. It Prevents Duplicates: The logic we wrote uses specific IDs (like classic-white-tee). If you click the button 5 times, it won't create 5 shirts; it will just update the existing one 5 times.
+</body>
+</html>

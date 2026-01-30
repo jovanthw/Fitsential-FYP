@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Orders | Fitsential</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground font-body">
+<script type="module" src="script.js"></script>
+
+<main class="py-20 min-h-[60vh]">
+    <div class="container mx-auto px-6 max-w-4xl">
+        <h1 class="font-heading text-3xl font-medium mb-8">My Orders</h1>
+
+        <div id="orders-empty" class="hidden text-center py-20">
+            <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6"><i data-lucide="package" class="w-8 h-8 text-gray-400"></i></div>
+            <h2 class="text-xl font-medium mb-2">No orders yet</h2>
+            <a href="shop.html" class="text-accent hover:underline">Start shopping -> </a>
+        </div>
+
+        <div id="orders-container">
+        </div>
+    </div>
+</main>
+</body>
+</html>

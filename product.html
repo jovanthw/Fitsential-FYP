@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .star-rating { display: inline-flex; flex-direction: row-reverse; }
+        .star-rating input { display: none; }
+        .star-rating label { cursor: pointer; color: #ccc; transition: color 0.2s; }
+        .star-rating label:hover, .star-rating label:hover ~ label, .star-rating input:checked ~ label { color: #f59e0b; }
+
+        /* Size Button Selected State */
+        .size-btn.selected { background-color: black; color: white; border-color: black; }
+    </style>
+</head>
+<body class="bg-background text-foreground font-body">
+<script type="module" src="script.js"></script>
+<main class="py-20 min-h-screen">
+    <div class="container mx-auto px-6 max-w-5xl">
+        <a href="shop.html" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-accent mb-8"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Shop</a>
+
+        <div class="grid md:grid-cols-2 gap-12 bg-white p-8 rounded-xl shadow-sm border border-border mb-16">
+            <div class="aspect-[3/4] bg-secondary rounded-lg overflow-hidden"><img id="p-image" src="" class="w-full h-full object-cover"></div>
+            <div class="flex flex-col justify-center">
+                <h1 id="p-name" class="font-heading text-4xl font-medium mb-4">Loading...</h1>
+                <p id="p-price" class="text-2xl text-accent font-semibold mb-6">$0.00</p>
+
+                <div class="space-y-6">
+                    <div><h3 class="font-medium mb-2">Description</h3><p id="p-desc" class="text-gray-600 leading-relaxed">...</p></div>
+
+                    <div>
+                        <h3 class="font-medium mb-3">Select Size</h3>
+                        <div class="flex gap-3" id="size-container">
+                            <button onclick="selectSize(this, 'S')" class="size-btn w-12 h-12 rounded-md border border-border text-sm font-medium hover:border-black transition">S</button>
+                            <button onclick="selectSize(this, 'M')" class="size-btn w-12 h-12 rounded-md border border-border text-sm font-medium hover:border-black transition selected">M</button>
+                            <button onclick="selectSize(this, 'L')" class="size-btn w-12 h-12 rounded-md border border-border text-sm font-medium hover:border-black transition">L</button>
+                            <button onclick="selectSize(this, 'XL')" class="size-btn w-12 h-12 rounded-md border border-border text-sm font-medium hover:border-black transition">XL</button>
+                        </div>
+                    </div>
+
+                    <div class="pt-8 border-t border-border flex gap-4">
+                        <button id="add-to-cart-btn" class="flex-1 bg-primary text-white py-4 rounded-md hover:bg-gray-800 transition shadow-lg flex items-center justify-center gap-3"><i data-lucide="shopping-bag" class="w-5 h-5"></i> Add to Cart</button>
+                        <button id="add-to-wish-btn" class="w-14 bg-white border border-border rounded-md hover:border-red-500 hover:text-red-500 transition flex items-center justify-center"><i data-lucide="heart" class="w-6 h-6"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="md:col-span-1">
+                <div id="review-loading" class="text-gray-400 text-sm italic">Checking eligibility...</div>
+                <div id="review-form-box" class="hidden bg-white p-6 rounded-xl border border-border sticky top-24">
+                    <h3 class="font-heading text-xl font-medium mb-4">Write a Review</h3>
+                    <p class="text-xs text-green-600 mb-4 flex items-center gap-1"><i data-lucide="check-circle" class="w-3 h-3"></i> Verified Purchase</p>
+                    <form onsubmit="submitReview(event)" class="space-y-4">
+                        <div><label class="block text-sm text-gray-500 mb-1">Rating</label><div class="star-rating justify-end"><input type="radio" id="star5" name="rating" value="5" /><label for="star5">★</label><input type="radio" id="star4" name="rating" value="4" /><label for="star4">★</label><input type="radio" id="star3" name="rating" value="3" /><label for="star3">★</label><input type="radio" id="star2" name="rating" value="2" /><label for="star2">★</label><input type="radio" id="star1" name="rating" value="1" /><label for="star1">★</label></div></div>
+                        <div><label class="block text-sm text-gray-500 mb-1">Your Review</label><textarea id="review-text" required rows="4" class="w-full p-3 border border-border rounded-md text-sm bg-gray-50 focus:bg-white transition outline-none focus:border-accent" placeholder="How was the fit?"></textarea></div>
+                        <p id="review-error-msg" class="hidden text-xs text-red-500 font-medium"></p>
+                        <button id="submit-review-btn" type="submit" class="w-full bg-black text-white py-3 rounded-md hover:bg-gray-800 transition text-sm font-medium">Post Review</button>
+                    </form>
+                </div>
+                <div id="review-denied-box" class="hidden bg-gray-50 p-6 rounded-xl border border-border text-center"><div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto mb-3 shadow-sm text-gray-400"><i data-lucide="lock" class="w-5 h-5"></i></div><h4 class="font-medium mb-2">Verified Reviews Only</h4><p class="text-sm text-gray-500 mb-4">You must purchase this item to leave a review.</p><a href="#add-to-cart-btn" onclick="document.getElementById('add-to-cart-btn').click()" class="text-accent hover:underline text-sm font-medium cursor-pointer">Buy Now</a></div>
+                <div id="review-login-box" class="hidden bg-gray-50 p-6 rounded-xl border border-border text-center"><p class="text-sm text-gray-500 mb-4">Please login to see if you are eligible to review.</p><a href="login.html" class="bg-white border border-border px-4 py-2 rounded-md text-sm hover:bg-gray-100 block w-full">Login / Signup</a></div>
+            </div>
+            <div class="md:col-span-2"><h3 class="font-heading text-xl font-medium mb-6">Customer Reviews</h3><div id="reviews-container" class="space-y-4"></div></div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

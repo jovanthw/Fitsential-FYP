@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile | Fitsential</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground font-body">
+<script type="module" src="script.js"></script>
+<main class="py-20 min-h-screen">
+    <div class="container mx-auto px-6 max-w-2xl animate-fade-in-up">
+
+        <div class="flex items-center justify-between mb-8">
+            <h1 class="font-heading text-3xl font-medium">My Profile</h1>
+
+            <div id="signout-popover" class="popover-wrapper relative">
+                <button onclick="openPopover('signout-popover')" class="popover-trigger text-red-500 text-sm hover:underline">Sign Out</button>
+                <div class="popover-content absolute top-full right-0 mt-2 w-64 bg-white border border-border shadow-lg rounded-xl p-1 z-20 origin-top-right">
+                    <div class="popover-form p-4 text-center">
+                        <h4 class="text-sm font-semibold mb-2">Confirm Sign Out</h4>
+                        <p class="text-xs text-gray-500 mb-4">Are you sure you want to log out?</p>
+                        <div class="flex gap-2">
+                            <button onclick="closePopover('signout-popover')" class="flex-1 border border-gray-200 py-2 rounded-md text-xs hover:bg-gray-50">Cancel</button>
+                            <button onclick="submitPopover(event, 'signout-popover', logout)" type="submit" class="flex-1 bg-red-600 text-white py-2 rounded-md text-xs hover:bg-red-700">Yes, Out</button>
+                        </div>
+                    </div>
+                    <div class="popover-success absolute inset-0 bg-white flex flex-col items-center justify-center">
+                        <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mb-2 animate-spin"><i data-lucide="loader" class="w-4 h-4"></i></div>
+                        <p class="text-sm">Signing out...</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="orders.html" class="block bg-white p-4 rounded-xl border border-border mb-6 flex justify-between items-center hover:shadow-md transition">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-accent"><i data-lucide="package" class="w-5 h-5"></i></div>
+                <span class="font-medium">My Orders</span>
+            </div>
+            <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+        </a>
+
+        <div class="bg-white p-8 rounded-xl border border-border shadow-sm">
+            <div class="flex items-center gap-4 mb-8 pb-8 border-b border-border">
+                <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold"><i data-lucide="user"></i></div>
+                <div>
+                    <p class="text-sm text-gray-500">Logged in as</p>
+                    <p id="p-display-name" class="font-medium text-lg">loading...</p>
+                </div>
+            </div>
+            <form onsubmit="saveProfile(event)" class="space-y-6">
+                <h3 class="font-heading text-xl">Personal Details</h3>
+                <div><label class="block text-sm font-medium mb-2">Username</label><input id="in-name" type="text" class="w-full p-3 border border-border rounded-md"></div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div><label class="block text-sm font-medium mb-2">Height (cm)</label><input id="in-height" type="number" class="w-full p-3 border border-border rounded-md"></div>
+                    <div><label class="block text-sm font-medium mb-2">Weight (kg)</label><input id="in-weight" type="number" class="w-full p-3 border border-border rounded-md"></div>
+                </div>
+                <button class="w-full bg-primary text-white py-3 rounded-md hover:bg-gray-800 transition">Save Profile</button>
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>

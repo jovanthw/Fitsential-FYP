@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart | Fitsential</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground font-body">
+<script type="module" src="script.js"></script>
+<main class="py-20 min-h-[80vh]">
+    <div class="container mx-auto px-6 max-w-6xl">
+        <h1 class="font-heading text-3xl font-medium mb-8">Shopping Cart</h1>
+
+        <div id="guest-state" class="hidden text-center py-20 bg-white rounded-xl border border-border">
+            <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="lock" class="w-8 h-8 text-gray-400"></i>
+            </div>
+            <h2 class="text-xl font-medium mb-2">Please Log In</h2>
+            <p class="text-gray-500 mb-8">You need to be logged in to view your cart.</p>
+            <a href="login.html" class="inline-block bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800 transition">Log In / Sign Up</a>
+        </div>
+
+        <div id="empty-state" class="hidden text-center py-20">
+            <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6"><i data-lucide="shopping-bag" class="w-8 h-8 text-gray-400"></i></div>
+            <h2 class="text-xl font-medium mb-2">Your cart is empty</h2>
+            <a href="shop.html" class="text-accent hover:underline">Continue Shopping -></a>
+        </div>
+
+        <div id="cart-summary" class="hidden flex flex-col lg:flex-row gap-12">
+            <div id="cart-container" class="flex-1 space-y-4"></div>
+            <div class="w-full lg:w-96 bg-white p-8 rounded-xl border border-border h-fit shadow-sm">
+                <h3 class="font-heading text-xl font-medium mb-6">Order Summary</h3>
+                <div class="space-y-4 mb-6 border-b border-border pb-6">
+                    <div class="flex justify-between text-sm"><span class="text-gray-500">Subtotal</span><span class="font-bold" id="summary-subtotal">$0.00</span></div>
+                    <div class="flex justify-between text-sm"><span class="text-gray-500">Shipping</span><span class="font-bold" id="summary-shipping">$0.00</span></div>
+                    <p class="text-xs text-orange-500">Free shipping on orders over $150</p>
+                </div>
+                <div class="flex justify-between items-center mb-8"><span class="font-heading text-lg font-bold">Total</span><span class="font-heading text-xl font-bold" id="summary-total">$0.00</span></div>
+                <a href="checkout.html" class="block w-full text-center bg-primary text-white py-4 rounded-md hover:bg-gray-800 transition shadow-lg font-medium">Proceed to Checkout</a>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

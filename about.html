@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About | Fitsential</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground font-body">
+<script type="module" src="script.js"></script>
+
+<main class="py-20">
+    <div class="container mx-auto px-6 max-w-6xl">
+
+        <div class="text-center mb-16 animate-fade-in-up">
+            <p class="text-accent text-xs font-bold tracking-widest uppercase mb-4">About Us</p>
+            <h1 class="font-heading text-5xl font-medium mb-6 text-primary">Our Story</h1>
+            <p class="text-gray-500 leading-relaxed max-w-2xl mx-auto">
+                Fitsential was born from a simple belief: everyone deserves to feel confident in what they wear.
+                We combine cutting-edge virtual fitting technology with timeless, curated fashion to help you discover your perfect style.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 animate-fade-in-up" style="animation-delay: 0.1s;">
+            <div class="text-center">
+                <div class="bg-gray-200 aspect-square mb-6"></div> <h3 class="font-bold text-lg">Cheng E-Sheng</h3>
+            </div>
+            <div class="text-center">
+                <div class="bg-gray-200 aspect-square mb-6"></div> <h3 class="font-bold text-lg">Jovan Tan</h3>
+            </div>
+            <div class="text-center">
+                <div class="bg-gray-200 aspect-square mb-6"></div> <h3 class="font-bold text-lg">Lim Zi Qian</h3>
+            </div>
+        </div>
+
+        <div class="text-center mb-12">
+            <h2 class="font-heading text-4xl mb-4">Get in Touch</h2>
+            <p class="text-gray-500 text-sm">Have questions? We'd love to hear from you.</p>
+        </div>
+
+        <!-- add validation for each input-->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-24">
+            <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-accent">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-heading text-xl mb-2">Email</h3>
+                <p class="text-xs text-gray-500">customer@fitsential.com</p>
+            </div>
+            <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-accent">
+                    <i data-lucide="phone" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-heading text-xl mb-2">Phone</h3>
+                <p class="text-xs text-gray-500">+60 123456789</p>
+            </div>
+            <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-accent">
+                    <i data-lucide="map-pin" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-heading text-xl mb-2">Address</h3>
+                <p class="text-xs text-gray-500">123 Fashion Ave, Bukit Jalil, Singapore</p>
+            </div>
+            <div class="bg-gray-50 p-8 rounded-2xl text-center">
+                <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-accent">
+                    <i data-lucide="clock" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-heading text-xl mb-2">Hours</h3>
+                <p class="text-xs text-gray-500">Mon - Fri: 9AM - 6PM</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+
+            <div>
+                <h3 class="font-heading text-2xl text-accent mb-6">Contact Us</h3>
+                <form class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold uppercase">First name</label>
+                            <input type="text" placeholder="Jane" class="w-full p-3 border border-gray-200 rounded-md bg-white">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold uppercase">Last name</label>
+                            <input type="text" placeholder="Smitherton" class="w-full p-3 border border-gray-200 rounded-md bg-white">
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold uppercase">Email address</label>
+                        <input type="email" placeholder="email@example.com" class="w-full p-3 border border-gray-200 rounded-md bg-white">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold uppercase">Your message</label>
+                        <textarea rows="4" placeholder="Enter your question..." class="w-full p-3 border border-gray-200 rounded-md bg-white"></textarea>
+                    </div>
+                    <button class="w-full bg-black text-white py-4 rounded-md font-medium hover:bg-gray-800 transition">Submit</button>
+                </form>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-gray-300 aspect-square rounded-2xl flex flex-col items-center justify-center text-gray-700 hover:bg-gray-400 transition cursor-pointer">
+                    <i data-lucide="facebook" class="w-10 h-10 mb-2"></i>
+                    <span class="font-bold text-sm">Fitsential@facebook</span>
+                </div>
+                <div class="bg-gray-300 aspect-square rounded-2xl flex flex-col items-center justify-center text-gray-700 hover:bg-gray-400 transition cursor-pointer">
+                    <i data-lucide="youtube" class="w-10 h-10 mb-2"></i>
+                    <span class="font-bold text-sm">Fitsential@YouTube</span>
+                </div>
+                <div class="bg-gray-300 aspect-square rounded-2xl flex flex-col items-center justify-center text-gray-700 hover:bg-gray-400 transition cursor-pointer">
+                    <i data-lucide="instagram" class="w-10 h-10 mb-2"></i>
+                    <span class="font-bold text-sm">Fitsential@Instagram</span>
+                </div>
+                <div class="bg-gray-300 aspect-square rounded-2xl flex flex-col items-center justify-center text-gray-700 hover:bg-gray-400 transition cursor-pointer">
+                    <i data-lucide="linkedin" class="w-10 h-10 mb-2"></i>
+                    <span class="font-bold text-sm">Fitsential@LinkedIn</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+</body>
+</html>

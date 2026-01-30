@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fitsential - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { background: "hsl(30 20% 98%)", primary: "hsl(20 10% 15%)", accent: "hsl(20 70% 47%)", card: "#1f1f1f" },
+                    fontFamily: { heading: ['"Playfair Display"', 'serif'], body: ['"Inter"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-primary font-body">
+<script type="module" src="script.js"></script>
+<main>
+    <!-- Picture word -->
+    <section class="relative h-screen flex items-center overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop" alt=" home page picture" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <div class="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center items-start text-left text-white animate-fade-in-up">
+            <p class="text-xs md:text-sm font-bold tracking-[0.2em] uppercase mb-6 text-white/80">New Collection 2026</p>
+            <h1 class="font-heading text-5xl md:text-7xl font-medium leading-tight mb-8">
+                Discover Your <br> <span class="italic font-serif">Perfect</span> Style
+            </h1>
+            <p class="text-gray-200 text-lg leading-relaxed mb-10 max-w-lg slide-up">Experience fashion like never before with our virtual
+                fitting room. Mix, match and visualize your perfect
+                outfit.  </p>
+            <p class="text-xs md:text-sm tracking-[0.2em] uppercase mb-6 text-white/80"> </p>
+            <div class="flex gap-4">
+                <a href="shop.html" class="bg-white text-black px-8 py-4 rounded-md hover:bg-gray-200 transition font-medium">Shop Now -></a>
+                <a href="fitroom.html" class="border border-white text-white px-8 py-4 rounded-md hover:bg-white hover:text-black transition">Virtual Fitroom</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-card text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="shop.html" class="bg-primary p-8 rounded-xl border border-white/5 hover:-translate-y-1 transition text-center block">
+                    <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mb-6 text-accent mx-auto"><i data-lucide="shirt" class="w-7 h-7"></i></div>
+                    <h3 class="font-heading text-xl mb-3">Curated Collection</h3>
+                    <p class="text-sm text-gray-400">Handpicked premium pieces.</p>
+                </a>
+                <a href="fitroom.html" class="bg-primary p-8 rounded-xl border border-white/5 hover:-translate-y-1 transition text-center block ring-1 ring-accent/30">
+                    <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mb-6 text-accent mx-auto"><i data-lucide="scissors" class="w-7 h-7"></i></div>
+                    <h3 class="font-heading text-xl mb-3">Virtual Fitroom</h3>
+                    <p class="text-sm text-gray-400">Try before you buy with AI.</p>
+                </a>
+                <a href="fitroom.html" class="bg-primary p-8 rounded-xl border border-white/5 hover:-translate-y-1 transition text-center block">
+                    <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mb-6 text-accent mx-auto"><i data-lucide="message-square" class="w-7 h-7"></i></div>
+                    <h3 class="font-heading text-xl mb-3">AI Style Advisor</h3>
+                    <p class="text-sm text-gray-400">Personalized recommendations.</p>
+                </a>
+                <a href="fitroom.html" class="bg-primary p-8 rounded-xl border border-white/5 hover:-translate-y-1 transition text-center block">
+                    <div class="w-14 h-14 bg-accent/20 rounded-full flex items-center justify-center mb-6 text-accent mx-auto"><i data-lucide="sparkles" class="w-7 h-7"></i></div>
+                    <h3 class="font-heading text-xl mb-3">Mix & Match</h3>
+                    <p class="text-sm text-gray-400">Create stunning ensembles.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>

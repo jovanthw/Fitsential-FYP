@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop | Fitsential</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground font-body">
+<script type="module" src="script.js"></script>
+<main class="py-12 min-h-screen relative">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-10 animate-fade-in-up">
+            <h1 class="font-heading text-4xl font-medium text-primary mb-4">Shop The Collection</h1>
+
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <button onclick="filterCategory('All')" class="cat-btn px-6 py-2 rounded-full border border-border text-sm hover:border-accent transition bg-primary text-white">All</button>
+                <button onclick="filterCategory('Tops')" class="cat-btn px-6 py-2 rounded-full border border-border text-sm hover:border-accent transition bg-white">Tops</button>
+                <button onclick="filterCategory('Bottoms')" class="cat-btn px-6 py-2 rounded-full border border-border text-sm hover:border-accent transition bg-white">Bottoms</button>
+                <button onclick="filterCategory('Outerwear')" class="cat-btn px-6 py-2 rounded-full border border-border text-sm hover:border-accent transition bg-white">Outerwear</button>
+                <button onclick="filterCategory('Dresses')" class="cat-btn px-6 py-2 rounded-full border border-border text-sm hover:border-accent transition bg-white">Dresses</button>
+            </div>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+    </div>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+        <div id="chat-window-float" class="hidden bg-white w-80 h-96 rounded-xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden">
+            <div class="bg-primary text-white p-4 flex justify-between items-center"><h3 class="font-medium text-sm">AI Stylist</h3><button onclick="toggleChat()" class="hover:text-gray-300">&times;</button></div>
+            <div id="chat-messages-float" class="flex-1 p-4 overflow-y-auto space-y-2 bg-gray-50"><div class="bg-gray-100 text-gray-800 p-3 rounded-lg rounded-tl-none text-sm mr-auto max-w-[80%]">How can I help?</div></div>
+            <div class="p-3 border-t border-gray-100 bg-white flex gap-2"><input id="chat-input-float" type="text" placeholder="Type here..." class="flex-1 text-sm p-2 border border-gray-200 rounded focus:border-accent outline-none"><button onclick="sendChatMessage()" class="bg-accent text-white p-2 rounded hover:bg-opacity-90"><i data-lucide="send" class="w-4 h-4"></i></button></div>
+        </div>
+        <button onclick="toggleChat()" class="bg-primary text-white w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-105 transition"><i data-lucide="message-circle" class="w-6 h-6"></i></button>
+    </div>
+</main>
+</body>
+</html>

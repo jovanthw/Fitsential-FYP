@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout | Fitsential</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground font-body">
+<script type="module" src="script.js"></script>
+
+<main class="py-12 min-h-screen">
+    <div class="container mx-auto px-6 max-w-6xl">
+        <a href="cart.html" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-accent mb-8"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Cart</a>
+        <h1 class="font-heading text-4xl font-medium mb-8">Checkout</h1>
+
+        <div class="flex justify-center mb-12">
+            <div class="bg-gray-100 p-1 rounded-full flex text-sm font-medium">
+                <button id="tab-shipping" class="px-6 py-2 rounded-full bg-accent text-white shadow-sm transition">Shipping</button>
+                <button id="tab-payment" class="px-6 py-2 rounded-full text-gray-500 transition">Payment</button>
+                <button id="tab-review" class="px-6 py-2 rounded-full text-gray-500 transition">Review</button>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12">
+
+            <div class="flex-1 bg-white p-8 rounded-xl border border-border shadow-sm">
+
+                <div id="step-shipping">
+                    <h2 class="font-heading text-xl font-medium mb-6">Shipping Information</h2>
+                    <form onsubmit="event.preventDefault(); setCheckoutStep('step-payment');" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input required type="text" placeholder="First Name" class="w-full p-3 border border-border rounded-md bg-gray-50">
+                            <input required type="text" placeholder="Last Name" class="w-full p-3 border border-border rounded-md bg-gray-50">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <input required type="email" placeholder="Email" class="w-full p-3 border border-border rounded-md bg-gray-50">
+                            <input required type="tel" placeholder="Phone" class="w-full p-3 border border-border rounded-md bg-gray-50">
+                        </div>
+                        <input required type="text" placeholder="Address" class="w-full p-3 border border-border rounded-md bg-gray-50">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input required type="text" placeholder="City" class="w-full p-3 border border-border rounded-md bg-gray-50">
+                            <input required type="text" placeholder="State" class="w-full p-3 border border-border rounded-md bg-gray-50">
+                        </div>
+                        <div class="pt-4 flex justify-end">
+                            <button type="submit" class="bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800 transition">Proceed to Payment</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="step-payment" class="hidden">
+                    <h2 class="font-heading text-xl font-medium mb-6">Payment Method</h2>
+
+                    <div class="grid grid-cols-3 gap-4 mb-8">
+                        <div id="payment-popover" class="popover-wrapper relative col-span-1">
+                            <button onclick="openPopover('payment-popover')" class="popover-trigger w-full border-2 border-accent bg-accent/5 p-4 rounded-lg flex flex-col items-center gap-2 text-sm font-medium">
+                                <i data-lucide="credit-card"></i> Credit Card
+                            </button>
+
+                            <div class="popover-content absolute left-0 top-full mt-2 w-72 bg-white border border-border shadow-lg rounded-xl p-1 z-20 origin-top-left">
+                                <div class="popover-form p-4">
+                                    <h4 class="text-sm font-semibold mb-3">Add Card Details</h4>
+                                    <form onsubmit="submitPopover(event, 'payment-popover', () => setCheckoutStep('step-review'))">
+                                        <input required type="text" placeholder="Card Number" class="w-full p-2 mb-2 border rounded-md text-sm bg-gray-50">
+                                        <div class="grid grid-cols-2 gap-2 mb-4">
+                                            <input required type="text" placeholder="MM/YY" class="p-2 border rounded-md text-sm bg-gray-50">
+                                            <input required type="text" placeholder="CVC" class="p-2 border rounded-md text-sm bg-gray-50">
+                                        </div>
+                                        <button type="submit" class="w-full bg-black text-white py-2 rounded-md text-xs">Save & Continue</button>
+                                    </form>
+                                </div>
+                                <div class="popover-success absolute inset-0 bg-white flex flex-col items-center justify-center">
+                                    <div class="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-2"><i data-lucide="check" class="w-4 h-4"></i></div>
+                                    <p class="text-sm">Card Added</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="border border-border p-4 rounded-lg flex flex-col items-center gap-2 text-sm text-gray-500 hover:border-gray-300"><i data-lucide="smartphone"></i> Apple Pay</button>
+                        <button class="border border-border p-4 rounded-lg flex flex-col items-center gap-2 text-sm text-gray-500 hover:border-gray-300"><i data-lucide="globe"></i> Google Pay</button>
+                    </div>
+                </div>
+
+                <div id="step-review" class="hidden">
+                    <h2 class="font-heading text-xl font-medium mb-6">Review Your Order</h2>
+                    <div class="bg-gray-50 p-4 rounded-lg mb-6 text-sm">
+                        <p class="font-bold mb-1">Shipping To:</p>
+                        <p class="text-gray-600">123 Fashion Street, Style City, 12345</p>
+                        <p class="font-bold mt-4 mb-1">Payment:</p>
+                        <p class="text-gray-600">Credit Card ending in 1234</p>
+                    </div>
+                    <div class="pt-4 flex justify-between items-center">
+                        <button type="button" onclick="setCheckoutStep('step-payment')" class="text-sm text-gray-500 hover:underline">Back</button>
+                        <button id="place-order-btn" onclick="placeOrder()" class="bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800 transition shadow-lg">Place Order</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="w-full lg:w-80 bg-gray-50 p-6 rounded-xl border border-border h-fit">
+                <h3 class="font-heading text-lg font-medium mb-4">Order Summary</h3>
+                <div id="checkout-summary-items" class="space-y-3 mb-6 border-b border-border pb-6"></div>
+                <div class="space-y-2 text-sm mb-4">
+                    <div class="flex justify-between"><span class="text-gray-500">Subtotal</span><span class="font-bold" id="checkout-subtotal">$0.00</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Shipping</span><span class="font-bold" id="checkout-shipping">$0.00</span></div>
+                </div>
+                <div class="flex justify-between font-bold text-lg pt-2 border-t border-border">
+                    <span>Total</span><span id="checkout-total">$0.00</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+</body>
+</html>

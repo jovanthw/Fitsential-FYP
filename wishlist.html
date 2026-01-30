@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Wishlist | Fitsential</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground font-body">
+<script type="module" src="script.js"></script>
+<main class="py-20 min-h-screen">
+    <div class="container mx-auto px-6 max-w-6xl">
+        <h1 class="font-heading text-4xl font-medium mb-2">My Wishlist</h1>
+        <p class="text-gray-500 mb-12">Your curated collection of favorites.</p>
+
+        <div id="guest-state" class="hidden text-center py-20 bg-white rounded-xl border border-border">
+            <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="lock" class="w-8 h-8 text-gray-400"></i>
+            </div>
+            <h2 class="text-xl font-medium mb-2">Please Log In</h2>
+            <p class="text-gray-500 mb-8">You need to be logged in to view your wishlist.</p>
+            <a href="login.html" class="inline-block bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800 transition">Log In / Sign Up</a>
+        </div>
+
+        <div id="wishlist-empty" class="hidden text-center py-20">
+            <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6"><i data-lucide="heart" class="w-8 h-8 text-gray-400"></i></div>
+            <h2 class="text-xl font-medium mb-2">Your wishlist is empty</h2>
+            <p class="text-gray-500 mb-8">Save items you love to revisit later.</p>
+            <a href="shop.html" class="inline-block bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800 transition">Explore Collection</a>
+        </div>
+
+        <div id="wishlist-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+</main>
+</body>
+</html>

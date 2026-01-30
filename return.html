@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Returns | Fitsential</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-background text-foreground font-body">
+<script type="module" src="script.js"></script>
+
+<main class="py-20 min-h-[60vh] flex flex-col items-center justify-center">
+    <div class="container mx-auto px-6 max-w-xl animate-fade-in-up">
+        <div class="text-center mb-10">
+            <h1 class="font-heading text-3xl font-medium mb-4">Start a Return</h1>
+            <p class="text-gray-500">We're sorry it didn't work out. Enter your order details below to get started.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl border border-border shadow-sm">
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-gray-700">Order Number</label>
+                    <input class="w-full p-3 border border-border rounded-md bg-gray-50 focus:bg-white focus:border-accent outline-none" placeholder="#ORD-XXXXX">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-gray-700">Email Address</label>
+                    <input class="w-full p-3 border border-border rounded-md bg-gray-50 focus:bg-white focus:border-accent outline-none" placeholder="name@example.com">
+                </div>
+                <button class="w-full bg-primary text-white py-4 rounded-md hover:bg-gray-800 transition font-medium mt-4">Find Order</button>
+            </div>
+        </div>
+
+        <div class="mt-8 text-center text-sm text-gray-500">
+            <p>Read our full <a href="faq.html" class="text-accent underline">Return Policy</a></p>
+        </div>
+    </div>
+</main>
+</body>
+</html>
